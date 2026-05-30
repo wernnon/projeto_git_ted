@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImobiTech - Sistema de Gestão Comercial</title>
+    <!-- Bootstrap CSS via pasta Assets -->
+    <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+    <!-- Ícones do Bootstrap via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/img/hero-bg.jpg') no-repeat center center/cover;
+            min-height: 400px;
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-building-fill text-warning me-2"></i>ImobiTech
+            </a>
+            <!-- CORREÇÃO: alterado type para "button" -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Imóveis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contratos</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white">
+                    <span class="me-3 d-none d-md-inline text-muted">Corretor: <strong>Wernnon Lucas</strong></span>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> Painel
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <!-- CORREÇÃO: removida a classe inexistente dropdown-menu-item -->
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Filtro Rápido -->
+    <section class="hero-section d-flex align-items-center text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3">Buscar Imóveis Cadastrados</h1>
+            <p class="lead mb-4">Gerencie e filtre a carteira de imóveis de forma rápida e intuitiva.</p>
+            
+            <!-- Barra de Filtros -->
+            <!-- CORREÇÃO: Removida classe redundante max-width -->
+            <div class="card text-dark p-4 shadow-sm mx-auto" style="max-width: 900px;">
+                <form class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold text-start d-block">Finalidade</label>
+                        <select class="form-select">
+                            <option>Todos</option>
+                            <option>Venda</option>
+                            <option>Locação</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold text-start d-block">Tipo de Imóvel</label>
+                        <select class="form-select">
+                            <option>Todos</option>
+                            <option>Apartamento</option>
+                            <option>Casa</option>
+                            <option>Terreno</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold text-start d-block">Cidade/Bairro</label>
+                        <!-- CORREÇÃO: Alterado de form-select para form-control -->
+                        <input type="text" class="form-control" placeholder="Ex: Centro, Olaria...">
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">
+                            <i class="bi bi-search me-1"></i> Filtrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal / Grid de Imóveis -->
+    <main class="container-fluid px-4 py-5 flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="h3 mb-0 text-dark fw-bold">Imóveis Recentes</h2>
+                <span class="text-muted">Mostrando 3 de 142 imóveis disponíveis</span>
+            </div>
+            <button class="btn btn-primary fw-semibold">
+                <i class="bi bi-plus-lg me-1"></i> Novo Imóvel
+            </button>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card Imóvel 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative">
+                    <span class="badge bg-success position-absolute top-0 start-0 m-3 fs-6">Venda</span>
+                    <img src="assets/img/casa-1.jpg" class="card-img-top bg-secondary" alt="Casa Residencial"> 
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="text-primary fw-bold mb-0">R$ 450.000</h5>
+                            <span class="text-muted small">Cód: 4001</span>
+                        </div>
+                        <h5 class="card-title text-truncate">Casa Residencial com Piscina</h5>
+                        <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Bairro Planalto, Porto Velho</p>
+                        
+                        <!-- Características -->
+                        <div class="d-flex justify-content-between text-secondary border-top pt-3 small">
+                            <span><i class="bi bi-door-open me-1"></i> 3 Quartos</span>
+                            <span><i class="bi bi-droplet me-1"></i> 2 Banheiros</span>
+                            <span><i class="bi bi-arrows-fullscreen me-1"></i> 180m²</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex gap-2 pb-3">
+                        <button class="btn btn-outline-secondary btn-sm flex-grow-1"><i class="bi bi-pencil-square"></i> Editar</button>
+                        <button class="btn btn-outline-primary btn-sm flex-grow-1"><i class="bi bi-eye"></i> Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Imóvel 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative">
+                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">Locação</span>
+                    <img src="assets/img/ap-1.jpg" class="card-img-top bg-secondary" alt="Apartamento Moderno">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="text-primary fw-bold mb-0">R$ 2.300 <span class="fs-6 fw-normal text-muted">/mês</span></h5>
+                            <span class="text-muted small">Cód: 4002</span>
+                        </div>
+                        <h5 class="card-title text-truncate">Apartamento Mobiliado Cond. Concept</h5>
+                        <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Bairro Olaria, Porto Velho</p>
+                        
+                        <!-- Características -->
+                        <div class="d-flex justify-content-between text-secondary border-top pt-3 small">
+                            <span><i class="bi bi-door-open me-1"></i> 2 Quartos</span>
+                            <span><i class="bi bi-droplet me-1"></i> 1 Banheiro</span>
+                            <span><i class="bi bi-arrows-fullscreen me-1"></i> 65m²</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex gap-2 pb-3">
+                        <button class="btn btn-outline-secondary btn-sm flex-grow-1"><i class="bi bi-pencil-square"></i> Editar</button>
+                        <button class="btn btn-outline-primary btn-sm flex-grow-1"><i class="bi bi-eye"></i> Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Imóvel 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative">
+                    <span class="badge bg-success position-absolute top-0 start-0 m-3 fs-6">Venda</span>
+                    <img src="assets/img/casa-2.jpg" class="card-img-top bg-secondary" alt="Sobrado Comercial">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="text-primary fw-bold mb-0">R$ 1.200.000</h5>
+                            <span class="text-muted small">Cód: 4003</span>
+                        </div>
+                        <h5 class="card-title text-truncate">Sobrado Comercial de Alto Padrão</h5>
+                        <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Centro, Porto Velho</p>
+                        
+                        <!-- Características -->
+                        <div class="d-flex justify-content-between text-secondary border-top pt-3 small">
+                            <span><i class="bi bi-door-open me-1"></i> 5 Salas</span>
+                            <span><i class="bi bi-droplet me-1"></i> 4 Banheiros</span>
+                            <span><i class="bi bi-arrows-fullscreen me-1"></i> 320m²</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex gap-2 pb-3">
+                        <button class="btn btn-outline-secondary btn-sm flex-grow-1"><i class="bi bi-pencil-square"></i> Editar</button>
+                        <button class="btn btn-outline-primary btn-sm flex-grow-1"><i class="bi bi-eye"></i> Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paginação Bootstrap -->
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link">Anterior</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-dark text-muted text-center py-4 mt-auto border-top border-secondary">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 ImobiTech. Todos os direitos reservados.</p>
+            <small>Sistema Interno de Monitoramento e Vendas.</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS via pasta Assets -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
